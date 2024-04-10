@@ -42,11 +42,7 @@ public class AssociateServiceImpl implements AssociateService {
 
     @Override
     public void deleteAssociate(String id) {
-        Associate associate = findById(id);
-
-        if (associate != null) {
-            repository.delete(associate);
-        }
+        repository.delete(findById(id));
     }
 
     @Transactional

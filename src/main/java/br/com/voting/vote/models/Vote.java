@@ -27,4 +27,43 @@ public class Vote {
     @Enumerated(EnumType.STRING)
     private TypeVote typeVote;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Associate getAssociate() {
+        return associate;
+    }
+
+    public void setAssociate(Associate associate) {
+        this.associate = associate;
+    }
+
+    public Topic getTopic() {
+        return topic;
+    }
+
+    public void setTopic(Topic topic) {
+        this.topic = topic;
+    }
+
+    public VotingSession getVotingSession() {
+        return votingSession;
+    }
+
+    public void setVotingSession(VotingSession votingSession) {
+        this.votingSession = votingSession;
+    }
+
+    public TypeVote getTypeVote() {
+        return typeVote;
+    }
+
+    public void setTypeVote(TypeVote typeVote) {
+        this.typeVote = typeVote;
+    }
 }

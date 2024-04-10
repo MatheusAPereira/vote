@@ -1,9 +1,16 @@
 package br.com.voting.vote.dtos;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.br.CPF;
+
 public class AssociateDTO {
 
     private String id;
+    @NotBlank (message = "Nome é obrigatório")
     private String name;
+    @NotBlank (message = "CPF é obrigatório")
+    @CPF (message = "CPF inválido")
     private String cpf;
 
     public String getId() {

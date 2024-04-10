@@ -3,6 +3,7 @@ package br.com.voting.vote.controllers;
 import br.com.voting.vote.dtos.AssociateDTO;
 import br.com.voting.vote.models.Associate;
 import br.com.voting.vote.services.AssociateService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,11 @@ import java.util.List;
 public class AssociateController {
 
     @Autowired
-    private AssociateService associateService;
+    private final AssociateService associateService;
+
+    public AssociateController(AssociateService associateService) {
+        this.associateService = associateService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Associate>> getAll() {
@@ -23,7 +28,7 @@ public class AssociateController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> create(@RequestBody AssociateDTO associateDTO) {
+    public ResponseEntity<Void> create(@RequestBody @Valid AssociateDTO associateDTO) {
         associateService.createAssociate(associateDTO);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
